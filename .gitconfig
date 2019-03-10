@@ -1,0 +1,33 @@
+[core]
+	# this actually opens in Notepad2
+	editor = notepad.exe
+
+[alias]
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+	shove = push origin --force
+	tug = pull upstream master
+
+[diff]
+	tool = bc4
+[difftool]
+	prompt = false
+[difftool "bc4"]
+	cmd = \"c:/program files/beyond compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+
+[merge]
+	tool = bc4
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "bc4"]
+	cmd = \"c:/program files/beyond compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+
+[rebase]
+	# turns on the fixup! and squash! message prefixes
+	autoSquash = true
+
+[protocol]
+	version = 2
