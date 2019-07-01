@@ -1,3 +1,9 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
 [core]
 	# this actually opens in Notepad2
 	editor = notepad.exe
@@ -8,6 +14,7 @@
 	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 	shove = push origin --force
 	tug = pull upstream master
+	amend = commit --amend --no-edit
 
 [diff]
 	tool = bc4
@@ -31,3 +38,6 @@
 
 [protocol]
 	version = 2
+
+[credential]
+	helper = manager
