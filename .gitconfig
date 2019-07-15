@@ -41,3 +41,6 @@
 
 [credential]
 	helper = manager
+
+[include]
+	path = overrides.gitconfig
