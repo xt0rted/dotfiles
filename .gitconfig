@@ -15,6 +15,7 @@
 	shove = push origin --force
 	tug = pull upstream master
 	amend = commit --amend --no-edit
+	undo = reset HEAD~1
 
 [diff]
 	tool = bc4
