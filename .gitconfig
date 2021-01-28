@@ -15,6 +15,7 @@
 	# Switches to specified branch (or the dafult branch if no branch is specified), runs git up, then runs bclean.
 	bdone = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git up && git bclean ${1-$DEFAULT}; }; f"
 	default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+	fix-head = remote set-head origin --auto
 	set-origin = remote set-url origin
 	set-upstream = remote set-url upstream
 	shove = push origin --force
