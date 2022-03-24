@@ -20,6 +20,7 @@
 	set-origin = remote set-url origin
 	set-upstream = remote set-url upstream
 	shove = push origin --force
+	touch = commit --amend --no-edit --date="now"
 	tug = "!f() { DEFAULT=$(git default); git pull upstream ${1-$DEFAULT}; }; f"
 	undo = reset HEAD~1
 	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
